@@ -5,15 +5,17 @@ function Navbar() {
     return (
         <nav className="nav">
             <ul className="nav__list">
-                <li className="nav__list__first-item">Modern Hacker News</li>
-                <li>new</li>
-                <li>past</li>
-                <li>comments</li>
-                <li>show</li>
-                <li>ask</li>
-                <li>jobs</li>
-                <li>submit</li>
-                <li className="nav__list__last-item">login</li>
+                <li className="nav__list__title">Modern Hacker News</li>
+                <ul className="nav__list__items">
+                    <li><a href="">new</a></li>
+                    <li><a href="">past</a></li>
+                    <li><a href="">comments</a></li>
+                    <li><a href="">show</a></li>
+                    <li><a href="">ask</a></li>
+                    <li><a href="">jobs</a></li>
+                    <li><a href="">submit</a></li>
+                    </ul>
+                <li className="nav__list__login"><a href="">login</a></li>
             </ul>
         </nav>
     )
