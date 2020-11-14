@@ -1,5 +1,6 @@
 import React , { useState , useEffect } from 'react';
 import axios from 'axios';
+import StoryCard from './components/StoryCard';
 
 function TopStories() {
     const baseURL = 'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty';
@@ -22,7 +23,7 @@ function TopStories() {
             })
             .catch(error => console.log(error));
         
-        // clean up function to remove previous 30 stories
+        // clean up function, to remove previous 30 stories
         return setStories([]);
     }, [timesClicked]);
 
@@ -31,6 +32,7 @@ function TopStories() {
         axios.get(`${storyURL}${id}.json?print=pretty`)
             .then(res => {
                 const {id, title, url, score, by, time, descendants} = res.data;
+                const hostname = (new URL(url)).hostname;
                 setStories(prevValues => {
                     return [
                         ...prevValues,
@@ -38,9 +40,10 @@ function TopStories() {
                             id,
                             title,
                             url,
+                            hostname,
                             points: score,
                             username: by,
-                            time: time,
+                            time,
                             numberOfComments: descendants
                         }
                     ]
@@ -51,13 +54,26 @@ function TopStories() {
 
 
     return (
-        <div>
-            <ul>
+        <div className="content-container">
+            <ol className="content-container__storycard-list">
                 {stories.map(story => {
-                    return <li key={story.id}>{story.title}</li>
+                   return (
+                       <StoryCard
+                            key={story.id}
+                            title={story.title}
+                            url={story.url}
+                            hostname={story.hostname}
+                            points={story.points}
+                            username={story.username}
+                            time={story.time}
+                            comments={story.numberOfComments}
+                        />
+                    )
                 })}
-            </ul>
-            <button onClick={() => setTimesClicked(timesClicked + 1)}>More</button>
+            </ol>
+            <button onClick={() => setTimesClicked(timesClicked + 1)} className="content-container__more-button">
+                More
+            </button>
         </div>
     )
 }

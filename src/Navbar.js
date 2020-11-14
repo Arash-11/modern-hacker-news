@@ -13,9 +13,7 @@ function Navbar() {
                     <li><a href="">show</a></li>
                     <li><a href="">ask</a></li>
                     <li><a href="">jobs</a></li>
-                    <li><a href="">submit</a></li>
-                    </ul>
-                <li className="nav__list__login"><a href="">login</a></li>
+                </ul>
             </ul>
         </nav>
     )

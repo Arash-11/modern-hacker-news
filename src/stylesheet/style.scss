@@ -1,6 +1,8 @@
 
 $whitesmoke: #f6f6ef;
 $orangered: #ff6600;
+$gray: #797880;
+$lightgray: #C8C7D4;
 
 %flex-row {
     display: flex;
@@ -22,15 +24,14 @@ html {
 
 body {
     background: $whitesmoke;
-    li {
-        list-style: none;
-    }
+    overflow-x: hidden;
     a {
         text-decoration: none;
-        color: black;
     }
 }
 
+
+// navbar ------------------------------------------------------------------------------------
 .nav {
     background: $orangered;
     padding: 1rem 3rem;
@@ -43,8 +44,66 @@ body {
 
 .nav__list__items {
     @extend %flex-row;
-    margin-left: -40%;
-    li {
-        margin-right: 10%;
+    justify-content: space-between;
+    width: 40%;
+    a {
+        color: black;
     }
+    li {
+        list-style: none;
+    }
+}
+
+
+// StoryCard ----------------------------------------------------------------------------------
+.content-container {
+    width: 100%;
+    border: solid 1px red;
+}
+
+.content-container__storycard-list {
+    width: fit-content;
+    margin: 0 auto;
+    li {
+        list-style-type: decimal;
+    }
+}
+
+.content-container__storycard-list__story {
+    // display: none;
+    padding: 3% 0 2%;
+    border-bottom: solid 1px $lightgray;
+    line-height: 1.8rem;
+}
+
+.content-container__storycard-list__story__title {
+    font-size: 1.1rem;
+    color: black;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.content-container__storycard-list__story__url {
+    color: $gray;
+    font-size: 0.9rem;
+}
+
+.content-container__storycard-list__info {
+    color: $gray;
+    font-size: 0.9rem;
+    a {
+        margin-left: 0.3rem;
+        color: $gray;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.content-container__more-button {
+    appearance: none;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin: 0 auto;
 }
