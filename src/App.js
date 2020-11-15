@@ -1,8 +1,9 @@
 import React from 'react';
 import './stylesheet/style.css';
-import Navbar from './Navbar';
-import TopStories from './TopStories';
-import NewStories from './NewStories';
+import Navbar from './components/Navbar';
+import TopStories from './pages/TopStories';
+import NewStories from './pages/NewStories';
+import SpecificComments from './pages/SpecificComments';
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,6 +17,7 @@ function App() {
             <Switch>
                 <Route path="/" component={TopStories} exact />
                 <Route path="/new" component={NewStories} exact />
+                <Route path="/storycomments" component={SpecificComments} exact />
             </Switch>
         </Router>
     )
