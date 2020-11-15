@@ -26,7 +26,8 @@ html {
 }
 
 body {
-  background: #f6f6ef;
+  background: #E3E3DC;
+  font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
 }
 
@@ -35,14 +36,27 @@ body a {
 }
 
 .nav {
-  background: #ff6600;
   padding: 1rem 3rem;
+  background: #FF6600;
 }
 
 .nav__list {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.nav__list li {
+  list-style: none;
+}
+
+.nav__list a {
+  color: #F6F6EF;
+}
+
+.nav__list__title {
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .nav__list__items {
@@ -52,17 +66,8 @@ body a {
   width: 40%;
 }
 
-.nav__list__items a {
-  color: black;
-}
-
-.nav__list__items li {
-  list-style: none;
-}
-
 .content-container {
   width: 100%;
-  border: solid 1px red;
 }
 
 .content-container__storycard-list {
@@ -72,10 +77,6 @@ body a {
   margin: 0 auto;
 }
 
-.content-container__storycard-list li {
-  list-style-type: decimal;
-}
-
 .content-container__storycard-list__story {
   padding: 3% 0 2%;
   border-bottom: solid 1px #C8C7D4;
@@ -83,7 +84,8 @@ body a {
 }
 
 .content-container__storycard-list__story__title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: black;
 }
 
@@ -93,12 +95,16 @@ body a {
 
 .content-container__storycard-list__story__url {
   color: #797880;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .content-container__storycard-list__info {
   color: #797880;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+}
+
+.content-container__storycard-list__info span {
+  margin-left: 0.3rem;
 }
 
 .content-container__storycard-list__info a {
@@ -114,10 +120,16 @@ body a {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  font-size: 1.1rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
+  display: block;
+  margin: 3% auto;
+  padding: 0.5%;
+  background: transparent;
+  border: solid 2px #FF6600;
+  font-size: 1.4rem;
+  color: #FF6600;
+}
+
+.content-container__more-button:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
