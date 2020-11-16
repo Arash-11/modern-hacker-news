@@ -106,6 +106,17 @@ body {
             text-decoration: underline;
         }
     }
+    button {
+        appearance: none;
+        margin-left: 0.3rem;
+        background: transparent;
+        border: none;
+        color: $gray;
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
 }
 
 .content-container__more-button {

@@ -3,14 +3,8 @@ import StoryFetch from '../components/StoryFetch';
 
 function NewStories() {
     const newStoryBaseURL = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
-    const newStoriesURL = 'https://hacker-news.firebaseio.com/v0/item/';
 
-    return (
-        <StoryFetch
-            baseURL={newStoryBaseURL}
-            storyURL={newStoriesURL}
-        />
-    )
+    return <StoryFetch baseURL={newStoryBaseURL} />
 }
 
 export default NewStories;

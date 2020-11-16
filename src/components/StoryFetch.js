@@ -3,6 +3,9 @@ import axios from 'axios';
 import StoryCard from './StoryCard';
 
 function StoryFetch(props) {
+    // this endpoint will be used for 'top' & 'new' stories, and comments
+    const storyURL = 'https://hacker-news.firebaseio.com/v0/item/';
+
     // to store information for each story shown on main page
     const [stories, setStories] = useState([]);
 
@@ -26,9 +29,9 @@ function StoryFetch(props) {
 
 
     const getStoryContent = id => {
-        axios.get(`${props.storyURL}${id}.json?print=pretty`)
+        axios.get(`${storyURL}${id}.json?print=pretty`)
             .then(res => {
-                const {id, title, url, score, by, time, descendants, kids} = res.data;
+                const {id, title, url, score, by, time, descendants} = res.data;
                 const hostname = (new URL(url)).hostname;
 
                 // convert UNIX time which is in seconds, to javascript which is in milliseconds
@@ -57,24 +60,8 @@ function StoryFetch(props) {
             .catch(error => console.log(error));
     }
 
-
-    const getCommentIDs = (id) => {
-        axios.get(`${props.storyURL}${id}.json?print=pretty`)
-            .then(res => {
-                const {kids} = res.data;
-                kids.map(id => getComments(id));
-            })
-            .catch(error => console.log(error))
-    }
-
-    const getComments = (id) => {
-        axios.get(`${props.storyURL}${id}.json?print=pretty`)
-            .then(res => {
-                const comments = res.data.text;
-                // console.log(comments);
-                props.showComments(comments);
-            })
-            .catch(error => console.log(error))
+    const findCommentIDs = (id) => {
+        props.findCommentIDs(id);
     }
 
 
@@ -93,7 +80,7 @@ function StoryFetch(props) {
                             username={story.username}
                             time={story.time}
                             comments={story.numberOfComments}
-                            getCommentIDs={getCommentIDs}
+                            findCommentIDs={findCommentIDs}
                         />
                     )
                 })}
