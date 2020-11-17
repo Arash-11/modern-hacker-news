@@ -18,8 +18,8 @@ function StoryFetch(props) {
         axios.get(props.baseURL)
             .then(res => {
                 // only get the top 30 stories at a time to show on a page
-                const topStoryArray = res.data.slice(storyNumber - 30, storyNumber);
-                topStoryArray.map(id => getStoryContent(id));
+                const storiesArray = res.data.slice(storyNumber - 30, storyNumber);
+                storiesArray.map(id => getStoryContent(id));
             })
             .catch(error => console.log(error));
         
@@ -32,7 +32,6 @@ function StoryFetch(props) {
         axios.get(`${storyURL}${id}.json?print=pretty`)
             .then(res => {
                 const {id, title, url, score, by, time, descendants} = res.data;
-                const hostname = (new URL(url)).hostname;
 
                 // convert UNIX time which is in seconds, to javascript which is in milliseconds
                 const jsTime = new Date(time * 1000);
@@ -41,24 +40,44 @@ function StoryFetch(props) {
                 const currentHour = currentDate.getHours();
                 const timeDifference = `${currentHour - uploadTime} hours`;
 
-                setStories(previousStories => {
-                    return [
-                        ...previousStories,
-                        {
-                            id,
-                            title,
-                            url,
-                            hostname,
-                            points: score,
-                            username: by,
-                            time: timeDifference,
-                            numberOfComments: descendants
-                        }
-                    ]
-                })
+                if (url) {
+                    const hostname = new URL(url).hostname;
+                    setStories(previousStories => {
+                        return [
+                            ...previousStories,
+                            {
+                                id,
+                                title,
+                                url,
+                                hostname,
+                                points: score,
+                                username: by,
+                                time: timeDifference,
+                                numberOfComments: descendants
+                            }
+                        ]
+                    })
+                }
+                else {
+                    setStories(previousStories => {
+                        return [
+                            ...previousStories,
+                            {
+                                id,
+                                title,
+                                points: score,
+                                username: by,
+                                time: timeDifference,
+                                numberOfComments: descendants
+                            }
+                        ]
+                    })
+                }
+                
             })
             .catch(error => console.log(error));
     }
+
 
     const findCommentIDs = (id) => {
         props.findCommentIDs(id);

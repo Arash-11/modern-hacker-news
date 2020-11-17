@@ -66,6 +66,17 @@ body {
 // StoryCard ----------------------------------------------------------------------------------
 .content-container {
     width: 100%;
+    opacity: 0;
+    animation: fade-in 0.3s ease-in 0.3s forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .content-container__storycard-list {
@@ -112,9 +123,9 @@ body {
         background: transparent;
         border: none;
         color: $gray;
+        text-decoration: underline;
         &:hover {
             cursor: pointer;
-            text-decoration: underline;
         }
     }
 }

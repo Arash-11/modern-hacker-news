@@ -3,10 +3,14 @@ import './stylesheet/style.css';
 import Navbar from './components/Navbar';
 import TopStories from './pages/TopStories';
 import NewStories from './pages/NewStories';
+import AskStories from './pages/AskStories';
+import ShowStories from './pages/ShowStories';
+import Jobs from './pages/Jobs';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from 'react-router-dom';
 
 function App() {
@@ -14,8 +18,12 @@ function App() {
         <Router>
             <Navbar />
             <Switch>
-                <Route path="/" component={TopStories} exact />
-                <Route path="/new" component={NewStories} exact />
+                <Route path='/' component={TopStories} exact />
+                <Route path='/new' component={NewStories} exact />
+                <Route path='/ask' component={AskStories} exact />
+                <Route path='/show' component={ShowStories} exact />
+                <Route path='/jobs' component={Jobs} exact />
+                <Redirect to='/' />
             </Switch>
         </Router>
     )

@@ -12,9 +12,9 @@ function Navbar() {
                     <li><Link to='/new'>new</Link></li>
                     <li><Link to='/'>past</Link></li>
                     <li><Link to='/'>comments</Link></li>
-                    <li><Link to='/'>show</Link></li>
-                    <li><Link to='/'>ask</Link></li>
-                    <li><Link to='/'>jobs</Link></li>
+                    <li><Link to='/ask'>ask</Link></li>
+                    <li><Link to='/show'>show</Link></li>
+                    <li><Link to='/jobs'>jobs</Link></li>
                 </ul>
             </ul>
         </nav>

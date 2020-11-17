@@ -68,6 +68,27 @@ body a {
 
 .content-container {
   width: 100%;
+  opacity: 0;
+  -webkit-animation: fade-in 0.3s ease-in 0.3s forwards;
+          animation: fade-in 0.3s ease-in 0.3s forwards;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .content-container__storycard-list {
@@ -124,11 +145,11 @@ body a {
   background: transparent;
   border: none;
   color: #797880;
+  text-decoration: underline;
 }
 
 .content-container__storycard-list__info button:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
 
 .content-container__more-button {
