@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function StoryCard (props) {
     return (
@@ -10,7 +11,13 @@ function StoryCard (props) {
             <span className="content-container__storycard-list__story__url"> ({props.hostname})</span>
         
             <p className="content-container__storycard-list__info">
-                {props.points} points by<a href="">{props.username}</a><span>{props.time} ago</span> |
+                {props.points} points by
+
+                <Link to={{pathname: '/user', state: {userID: props.username}}}>
+                    {props.username}
+                </Link>
+                <span>{props.time} ago</span> |
+
                 <button onClick={() => props.findCommentIDs(props.id)}>
                     {props.comments} {props.comments === 1 ? 'comment' : 'comments'}
                 </button>

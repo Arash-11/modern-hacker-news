@@ -6,6 +6,7 @@ import NewStories from './pages/NewStories';
 import AskStories from './pages/AskStories';
 import ShowStories from './pages/ShowStories';
 import Jobs from './pages/Jobs';
+import UserInfo from './pages/UserInfo';
 import {
     BrowserRouter as Router,
     Switch,
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/ask' component={AskStories} exact />
                 <Route path='/show' component={ShowStories} exact />
                 <Route path='/jobs' component={Jobs} exact />
+                <Route path='/user' component={UserInfo} exact />
                 <Redirect to='/' />
             </Switch>
         </Router>
