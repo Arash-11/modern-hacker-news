@@ -31,6 +31,10 @@ body {
   overflow-x: hidden;
 }
 
+body li {
+  list-style: none;
+}
+
 body a {
   text-decoration: none;
 }
@@ -46,10 +50,6 @@ body a {
           justify-content: space-between;
 }
 
-.nav__list li {
-  list-style: none;
-}
-
 .nav__list a {
   color: #F6F6EF;
 }
@@ -63,7 +63,7 @@ body a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 40%;
+  width: 30%;
 }
 
 .content-container {
@@ -131,25 +131,7 @@ body a {
 .content-container__storycard-list__info a {
   margin-left: 0.3rem;
   color: #797880;
-}
-
-.content-container__storycard-list__info a:hover {
   text-decoration: underline;
-}
-
-.content-container__storycard-list__info button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  margin-left: 0.3rem;
-  background: transparent;
-  border: none;
-  color: #797880;
-  text-decoration: underline;
-}
-
-.content-container__storycard-list__info button:hover {
-  cursor: pointer;
 }
 
 .content-container__more-button {

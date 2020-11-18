@@ -13,6 +13,13 @@ $lightgray: #C8C7D4;
     align-items: center;
 }
 
+%flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 html {
     font-size: 16px;
@@ -28,6 +35,9 @@ body {
     background: $gainsboro;
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
+    li {
+        list-style: none;
+    }
     a {
         text-decoration: none;
     }
@@ -43,9 +53,6 @@ body {
 .nav__list {
     @extend %flex-row;
     justify-content: space-between;
-    li {
-        list-style: none;
-    }
     a { // this is the <Link to=''></Link> you see in the .js files
         color: $whitesmoke;
     }
@@ -59,7 +66,7 @@ body {
 .nav__list__items {
     @extend %flex-row;
     justify-content: space-between;
-    width: 40%;
+    width: 30%;
 }
 
 
@@ -113,20 +120,7 @@ body {
     a {
         margin-left: 0.3rem;
         color: $gray;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-    button {
-        appearance: none;
-        margin-left: 0.3rem;
-        background: transparent;
-        border: none;
-        color: $gray;
         text-decoration: underline;
-        &:hover {
-            cursor: pointer;
-        }
     }
 }
 
@@ -143,3 +137,39 @@ body {
         cursor: pointer;
     }
 }
+
+
+// UserInfo page ----------------------------------------------------------------------------
+// .userinfo-container {
+//     border: solid 1px red;
+//     @extend %flex-row;
+//     // justify-content: space-between;
+//     position: relative;
+//     margin: auto;
+//     width: 70%;
+//     font-size: 1.1rem;
+// }
+
+// .userinfo-container__labels {
+//     @extend %flex-column;
+//     width: 40%;
+// }
+
+// .userinfo-container__labels__item {
+//     margin: 2% auto;
+//     // border: solid 1px red;
+// }
+
+// .userinfo-container__entries {
+//     @extend %flex-column;
+//     width: 70%;
+//     color: $orangered;
+//     font-weight: 600;
+//     border: solid 1px yellow;
+// }
+
+// .userinfo-container__entries__item {
+//     margin: 2% 0;
+//     width: 100%;
+//     border: solid 1px green;
+// }

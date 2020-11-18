@@ -79,11 +79,6 @@ function StoryFetch(props) {
     }
 
 
-    const findCommentIDs = (id) => {
-        props.findCommentIDs(id);
-    }
-
-
     return (
         <div className="content-container">
             <ol start={storyNumber - 29} className="content-container__storycard-list">
@@ -99,7 +94,6 @@ function StoryFetch(props) {
                             username={story.username}
                             time={story.time}
                             comments={story.numberOfComments}
-                            findCommentIDs={findCommentIDs}
                         />
                     )
                 })}
