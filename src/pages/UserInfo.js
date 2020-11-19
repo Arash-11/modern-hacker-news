@@ -16,7 +16,7 @@ function UserInfo() {
     const {username, created, karma, about} = user;
 
     useEffect(() => {
-        getUserInfo(location.state.userID);
+        getUserInfo(location.state.username);
     }, [location]);
 
     const getUserInfo = (username) => {

@@ -8,7 +8,7 @@ function Comments () {
 
     const [story, setStory] = useState({});
 
-    const [comment, setComment] = useState();
+    const [comments, setComments] = useState([]);
 
     const location = useLocation();
 
@@ -30,15 +30,17 @@ function Comments () {
     const getComments = (id) => {
         axios.get(`${storyURL}${id}.json?print=pretty`)
             .then(res => {
-                console.log(res);
-                const {by, time, text} = res.data;
-                setComment(prevComments => {
-                    return {
+                const {id, by, time, text} = res.data;
+                setComments(prevComments => {
+                    return [
                         ...prevComments,
-                        by,
-                        time,
-                        text
-                    }
+                        {
+                            id,
+                            by,
+                            time,
+                            text
+                        }
+                    ]
                 });
             })
             .catch(error => console.log(error))
@@ -46,7 +48,7 @@ function Comments () {
 
 
     return (
-        <>
+        <div>
             <CommentHeading
                 title={story.title}
                 url={story.url}
@@ -56,7 +58,18 @@ function Comments () {
                 time={story.time}
                 comments={story.numberOfComments}
             />
-        </>
+            <ul>
+                {comments.map(comment => {
+                    return (
+                        <li 
+                            key={comment.id} 
+                            className="comment-item" 
+                            dangerouslySetInnerHTML={{ __html: comment.text }}
+                        />
+                    )
+                })}
+            </ul>
+        </div>
     )
 }
 

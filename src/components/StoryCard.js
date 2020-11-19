@@ -27,7 +27,7 @@ function StoryCard (props) {
             <p className="content-container__storycard-list__info">
                 {props.points} points | by
 
-                <Link to={{ pathname: '/user', state: {userID: props.username} }}>
+                <Link to={{ pathname: '/user', state }}>
                     {props.username}
                 </Link>
                 <span>{props.time} ago</span>
