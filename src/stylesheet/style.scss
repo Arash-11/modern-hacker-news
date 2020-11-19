@@ -173,3 +173,38 @@ body {
 //     width: 100%;
 //     border: solid 1px green;
 // }
+
+
+// Comments page ---------------------------------------------------------------------------
+.comment-title__container {
+    width: fit-content;
+    margin: 1% auto;
+}
+
+.comment-title__container__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: black;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.comment-title__container__url {
+    color: $gray;
+    font-size: 0.9rem;
+}
+
+.comment-title__container__info {
+    margin-top: 2%;
+    color: $gray;
+    font-size: 1rem;
+    span {
+        margin-left: 0.3rem;
+    }
+    a {
+        margin-left: 0.3rem;
+        color: $gray;
+        text-decoration: underline;
+    }
+}

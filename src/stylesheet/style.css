@@ -150,4 +150,42 @@ body a {
 .content-container__more-button:hover {
   cursor: pointer;
 }
+
+.comment-title__container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1% auto;
+}
+
+.comment-title__container__title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: black;
+}
+
+.comment-title__container__title:hover {
+  text-decoration: none;
+}
+
+.comment-title__container__url {
+  color: #797880;
+  font-size: 0.9rem;
+}
+
+.comment-title__container__info {
+  margin-top: 2%;
+  color: #797880;
+  font-size: 1rem;
+}
+
+.comment-title__container__info span {
+  margin-left: 0.3rem;
+}
+
+.comment-title__container__info a {
+  margin-left: 0.3rem;
+  color: #797880;
+  text-decoration: underline;
+}
 /*# sourceMappingURL=style.css.map */
