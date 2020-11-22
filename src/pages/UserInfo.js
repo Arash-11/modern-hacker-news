@@ -15,9 +15,11 @@ function UserInfo() {
     });
     const {username, created, karma, about} = user;
 
-    useEffect(() => {
-        getUserInfo(location.state.username);
-    }, [location]);
+
+    useEffect(() => (
+        getUserInfo(location.state.username)
+    ), [location]);
+
 
     const getUserInfo = (username) => {
         axios.get(`${userURL}${username}.json?print=pretty`)
@@ -32,6 +34,7 @@ function UserInfo() {
             })
             .catch(error => console.log(error))
     }
+
 
     return (
         <div className="userinfo-container">

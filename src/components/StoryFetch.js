@@ -2,7 +2,9 @@ import React , { useState , useEffect } from 'react';
 import axios from 'axios';
 import StoryCard from './StoryCard';
 
+
 function StoryFetch(props) {
+
     // this endpoint will be used for 'top' & 'new' stories, and comments
     const storyURL = 'https://hacker-news.firebaseio.com/v0/item/';
 
@@ -13,6 +15,7 @@ function StoryFetch(props) {
     // This will be used to determine which 30 stories to show.
     const [timesClicked, setTimesClicked] = useState(1);
     const storyNumber = 30 * timesClicked;
+
 
     useEffect(() => {
         axios.get(props.baseURL)
@@ -82,21 +85,19 @@ function StoryFetch(props) {
     return (
         <div className="content-container">
             <ol start={storyNumber - 29} className="content-container__storycard-list">
-                {stories.map(story => {
-                   return (
-                       <StoryCard
-                            key={story.id}
-                            id={story.id}
-                            title={story.title}
-                            url={story.url}
-                            hostname={story.hostname}
-                            points={story.points}
-                            username={story.username}
-                            time={story.time}
-                            comments={story.numberOfComments}
-                        />
-                    )
-                })}
+                {stories.map(story => (
+                    <StoryCard
+                        key={story.id}
+                        id={story.id}
+                        title={story.title}
+                        url={story.url}
+                        hostname={story.hostname}
+                        points={story.points}
+                        username={story.username}
+                        time={story.time}
+                        comments={story.numberOfComments}
+                    />
+                ))}
             </ol>
             <button onClick={() => setTimesClicked(timesClicked + 1)} className="content-container__more-button">
                 More

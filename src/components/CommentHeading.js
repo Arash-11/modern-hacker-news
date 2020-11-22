@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 function CommentHeading (props) {
     return (
         <div id={props.id} className="comment-title__container">
