@@ -41,9 +41,12 @@ function CommentsPage() {
                 comments={story.numberOfComments}
             />
             <div>
-                {commentIDs.map(item => (
-                    <Comment key={commentIDs.indexOf(item)} someID={item} />
-                ))}
+                {commentIDs
+                    ?   commentIDs.map(item => (
+                            <Comment key={item} someID={item} />
+                        ))
+                    :   <p>No comments yet.</p>
+                }
             </div>
         </> 
     )

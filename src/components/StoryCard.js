@@ -15,9 +15,10 @@ function StoryCard (props) {
         numberOfComments: props.comments
     }
 
+
     return (
         <li id={props.id} className="content-container__storycard-list__story">
-            <a href={props.url} className="content-container__storycard-list__story__title">
+            <a href={props.url} target="_blank" rel="noopener noreferrer" className="content-container__storycard-list__story__title">
                 {props.title}
             </a>
 
@@ -26,20 +27,25 @@ function StoryCard (props) {
             </span>
 
             <p className="content-container__storycard-list__info">
-                {props.points} points | by
+                {props.points} {props.points === 1 ? 'point' : 'points'} | by
 
                 <Link to={{ pathname: '/user', state }}>
                     {props.username}
                 </Link>
-                <span>{props.time} ago</span>
+                <span>{props.time}</span>
 
                 {props.comments >= 0 &&
-                <Link to={{ pathname: '/comments', state }}>
-                    | {props.comments} {props.comments === 1 ? 'comment' : 'comments'}
-                </Link>}
+                    <>
+                        <span> | </span>
+                        <Link to={{ pathname: '/comments', state }}>
+                            {props.comments} {props.comments === 1 ? 'comment' : 'comments'}
+                        </Link>
+                    </>
+                }
             </p>
         </li>
     )
 }
+
 
 export default StoryCard;

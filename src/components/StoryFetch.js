@@ -1,6 +1,7 @@
 import React , { useState , useEffect } from 'react';
 import axios from 'axios';
 import StoryCard from './StoryCard';
+import getTimeDetails from './TimeDifference';
 
 
 function StoryFetch(props) {
@@ -22,26 +23,20 @@ function StoryFetch(props) {
             .then(res => {
                 // only get the top 30 stories at a time to show on a page
                 const storiesArray = res.data.slice(storyNumber - 30, storyNumber);
-                storiesArray.map(id => getStoryContent(id));
+                storiesArray.map(id => getStoryDetails(id));
             })
             .catch(error => console.log(error));
         
         // clean up function, to remove previous 30 stories
         return setStories([]);
+        // eslint-disable-next-line
     }, [timesClicked]);
 
 
-    const getStoryContent = id => {
+    const getStoryDetails = id => {
         axios.get(`${storyURL}${id}.json?print=pretty`)
             .then(res => {
                 const {id, title, url, score, by, time, descendants} = res.data;
-
-                // convert UNIX time which is in seconds, to javascript which is in milliseconds
-                const jsTime = new Date(time * 1000);
-                const uploadTime = jsTime.getHours();
-                const currentDate = new Date();
-                const currentHour = currentDate.getHours();
-                const timeDifference = `${currentHour - uploadTime} hours`;
 
                 if (url) {
                     const hostname = new URL(url).hostname;
@@ -55,7 +50,7 @@ function StoryFetch(props) {
                                 hostname,
                                 points: score,
                                 username: by,
-                                time: timeDifference,
+                                time: getTimeDetails(time),
                                 numberOfComments: descendants
                             }
                         ]
@@ -70,7 +65,7 @@ function StoryFetch(props) {
                                 title,
                                 points: score,
                                 username: by,
-                                time: timeDifference,
+                                time: getTimeDetails(time),
                                 numberOfComments: descendants
                             }
                         ]

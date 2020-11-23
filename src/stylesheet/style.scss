@@ -46,19 +46,24 @@ body {
 
 // navbar ------------------------------------------------------------------------------------
 .nav {
-    padding: 1rem 3rem;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 3.5rem;
+    padding: 1rem 4rem;
     background: $orangered;
 }
 
 .nav__list {
     @extend %flex-row;
     justify-content: space-between;
-    a { // this is the <Link to=''></Link> you see in the .js files
+    a {
         color: $whitesmoke;
     }
 }
 
 .nav__list__title {
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -67,6 +72,18 @@ body {
     @extend %flex-row;
     justify-content: space-between;
     width: 30%;
+    font-size: 1.1rem;
+    a {
+        opacity: 0.7;
+    }
+}
+
+.highlight {
+    font-weight: 600;
+    a {
+        color: white;
+        opacity: 1;
+    }
 }
 
 
@@ -87,8 +104,9 @@ body {
 }
 
 .content-container__storycard-list {
-    width: fit-content;
     margin: 0 auto;
+    padding-top: 3.5rem;
+    width: fit-content;
 }
 
 .content-container__storycard-list__story {
@@ -140,45 +158,59 @@ body {
 
 
 // UserInfo page ----------------------------------------------------------------------------
-// .userinfo-container {
-//     border: solid 1px red;
-//     @extend %flex-row;
-//     // justify-content: space-between;
-//     position: relative;
-//     margin: auto;
-//     width: 70%;
-//     font-size: 1.1rem;
-// }
+.userinfo-container {
+    @extend %flex-row;
+    align-items: flex-start;
+    position: relative;
+    margin: auto;
+    padding-top: 5rem;
+    width: 70%;
+    font-size: 1.1rem;
+}
 
-// .userinfo-container__labels {
-//     @extend %flex-column;
-//     width: 40%;
-// }
+.userinfo-container__labels {
+    @extend %flex-column;
+    width: 20%;
+    margin-top: 0;
+}
 
-// .userinfo-container__labels__item {
-//     margin: 2% auto;
-//     // border: solid 1px red;
-// }
+.userinfo-container__labels__item {
+    margin: 1.5rem 10% 1.5rem auto;
+    color: $gray;
+    font-weight: 600;
+    &:last-child {
+        margin-bottom: auto;
+    }
+}
 
-// .userinfo-container__entries {
-//     @extend %flex-column;
-//     width: 70%;
-//     color: $orangered;
-//     font-weight: 600;
-//     border: solid 1px yellow;
-// }
+.userinfo-container__entries {
+    @extend %flex-column;
+    width: 80%;
+    color: $orangered;
+    font-weight: 600;
+}
 
-// .userinfo-container__entries__item {
-//     margin: 2% 0;
-//     width: 100%;
-//     border: solid 1px green;
-// }
+.userinfo-container__entries__item {
+    margin: 1.5rem 0;
+    width: 100%;
+    white-space: pre-wrap;
+    &:nth-child(4) {
+        margin-bottom: 0.5rem;
+    }
+    a {
+        color: $darkgray;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
 
 
 // Comments page ---------------------------------------------------------------------------
 .comment-title__container {
     width: fit-content;
-    margin: 1% auto;
+    margin: 0 auto;
+    padding-top: 5rem;
 }
 
 .comment-title__container__title {

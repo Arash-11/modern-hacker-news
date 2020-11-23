@@ -7,29 +7,52 @@ function UserInfo() {
 
     const location = useLocation();
 
+    const [links, setLinks] = useState({
+        submissions: '',
+        comments: ''
+    });
+
     const [user, setUser] = useState({
         username: '',
-        created: '',
+        accountDate: '',
         karma: '',
         about: ''
     });
-    const {username, created, karma, about} = user;
+    const {username, accountDate, karma, about} = user;
 
 
-    useEffect(() => (
-        getUserInfo(location.state.username)
-    ), [location]);
+    useEffect(() => {
+        const username = location.state.username;
+        getUserInfo(username)
+        setLinks({
+            submissions: `https://news.ycombinator.com/submitted?id=${username}`,
+            comments: `https://news.ycombinator.com/threads?id=${username}`
+        })
+    }, [location]);
+
+    
+    const getAccountDate = (unixTime) => {
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+        const dateObj = new Date(unixTime * 1000);
+        const year = dateObj.getUTCFullYear();
+        const month = months[dateObj.getUTCMonth()];
+        const day = dateObj.getUTCDate();
+
+        return `${month} ${day}, ${year}`;
+    }
 
 
     const getUserInfo = (username) => {
         axios.get(`${userURL}${username}.json?print=pretty`)
             .then(res => {
                 const {created, karma, about} = res.data;
+                const accountDate = getAccountDate(created);
 
                 if (about) {
-                    setUser({ username, created, karma, about });
+                    setUser({ username, accountDate, karma, about });
                 } else {
-                    setUser({ username, created, karma, about: '-' });
+                    setUser({ username, accountDate, karma, about: '-' });
                 }
             })
             .catch(error => console.log(error))
@@ -39,20 +62,21 @@ function UserInfo() {
     return (
         <div className="userinfo-container">
             <ul className="userinfo-container__labels">
-                {/* <ul> */}
-                    <li className="userinfo-container__labels__item">Username:</li>
-                    <li className="userinfo-container__labels__item">Account created on:</li>
-                    <li className="userinfo-container__labels__item">Karma:</li>
-                    <li className="userinfo-container__labels__item">About:</li>
-                {/* </ul> */}
+                <li className="userinfo-container__labels__item">Username:</li>
+                <li className="userinfo-container__labels__item">Account created on:</li>
+                <li className="userinfo-container__labels__item">Karma:</li>
+                <li className="userinfo-container__labels__item">About:</li>
             </ul>
             <ul className="userinfo-container__entries">
-                {/* <ul> */}
-                    <li className="userinfo-container__entries__item">{username}</li>
-                    <li className="userinfo-container__entries__item">{created}</li>
-                    <li className="userinfo-container__entries__item">{karma}</li>
-                    <li className="userinfo-container__entries__item">{about}</li>
-                {/* </ul> */}
+                <li className="userinfo-container__entries__item">{username}</li>
+                <li className="userinfo-container__entries__item">{accountDate}</li>
+                <li className="userinfo-container__entries__item">{karma}</li>
+                <li className="userinfo-container__entries__item" dangerouslySetInnerHTML={{ __html: about }}/>
+                <li className="userinfo-container__entries__item">
+                    <a href={links.submissions} target="_blank" rel="noopener noreferrer">submissions</a>
+                    <span> | </span>
+                    <a href={links.comments} target="_blank" rel="noopener noreferrer">comments</a>
+                </li>
             </ul>
         </div>
     )
