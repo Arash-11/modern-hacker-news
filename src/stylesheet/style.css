@@ -30,6 +30,24 @@
           align-items: center;
 }
 
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 html {
   font-size: 16px;
 }
@@ -92,6 +110,11 @@ body a {
   opacity: 0.7;
 }
 
+.nav__list__items a:hover {
+  color: white;
+  opacity: 1;
+}
+
 .highlight {
   font-weight: 600;
 }
@@ -106,24 +129,6 @@ body a {
   opacity: 0;
   -webkit-animation: fade-in 0.3s ease-in 0.3s forwards;
           animation: fade-in 0.3s ease-in 0.3s forwards;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .content-container__storycard-list {
@@ -144,10 +149,6 @@ body a {
   font-size: 1.2rem;
   font-weight: 600;
   color: black;
-}
-
-.content-container__storycard-list__story__title:hover {
-  text-decoration: none;
 }
 
 .content-container__storycard-list__story__url {
@@ -196,6 +197,9 @@ body a {
   padding-top: 5rem;
   width: 70%;
   font-size: 1.1rem;
+  opacity: 0;
+  -webkit-animation: fade-in 0.3s ease-in 0.3s forwards;
+          animation: fade-in 0.3s ease-in 0.3s forwards;
 }
 
 .userinfo-container__labels {
@@ -243,6 +247,9 @@ body a {
   width: fit-content;
   margin: 0 auto;
   padding-top: 5rem;
+  opacity: 0;
+  -webkit-animation: fade-in 0.3s ease-in 0.3s forwards;
+          animation: fade-in 0.3s ease-in 0.3s forwards;
 }
 
 .comment-title__container__title {
@@ -276,8 +283,41 @@ body a {
   text-decoration: underline;
 }
 
-.comment-item {
-  margin: 3% 0 3% 10%;
-  width: 80%;
+.comments-container {
+  padding: 2.5rem 4rem;
+  opacity: 0;
+  -webkit-animation: fade-in 0.3s ease-in 0.3s forwards;
+          animation: fade-in 0.3s ease-in 0.3s forwards;
+}
+
+.comments-container__no-comment {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #414145;
+}
+
+.comments-container__comment {
+  padding: 0.8rem 0;
+  line-height: 1.5rem;
+}
+
+.separate-comment {
+  border-top: solid 1px #C8C7D4;
+  padding: 2rem 0;
+}
+
+.comments-container__comment__heading {
+  margin-bottom: 0.3rem;
+  color: #797880;
+  font-size: 0.9rem;
+}
+
+.comments-container__comment__heading span:last-child {
+  margin-left: 0.5rem;
+}
+
+.comments-container__comment__body {
+  font-size: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-function CommentHeading (props) {
+function CommentPageHeading (props) {
     return (
         <div id={props.id} className="comment-title__container">
             <a href={props.url} className="comment-title__container__title">
@@ -26,4 +26,4 @@ function CommentHeading (props) {
     )
 }
 
-export default CommentHeading;
+export default CommentPageHeading;

@@ -28,19 +28,18 @@ function Comment ({commentID, depth = 0}) {
 
     return (
         <>
-            
-            <div style={{marginBottom: "20px"}}>
-                <span>
-                    {commentInfo.by}
-                    {getTimeDetails(commentInfo.time)}
-                </span>
+            <div style={{marginLeft: depth * 50}} className={`comments-container__comment ${depth === 0 && ' separate-comment'}`}>
+                <p className="comments-container__comment__heading">
+                    <span>{commentInfo.by}</span>
+                    <span>{getTimeDetails(commentInfo.time)}</span>
+                </p>                
                 <p
                     key={commentInfo.id}
                     dangerouslySetInnerHTML={{ __html: commentInfo.text }}
-                    style={{ paddingLeft: depth * 15 }}
+                    className="comments-container__comment__body"
                 />
-                {nestedComments}
             </div>
+            {nestedComments}
         </>
     )
 

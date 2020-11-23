@@ -1,7 +1,7 @@
 import React , { useState , useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import CommentHeading from '../components/CommentHeading';
+import CommentPageHeading from '../components/CommentPageHeading';
 import Comment from '../components/Comment';
 
 
@@ -31,7 +31,7 @@ function CommentsPage() {
 
     return (
         <>
-            <CommentHeading
+            <CommentPageHeading
                 title={story.title}
                 url={story.url}
                 hostname={story.hostname}
@@ -40,12 +40,12 @@ function CommentsPage() {
                 time={story.time}
                 comments={story.numberOfComments}
             />
-            <div>
-                {commentIDs
+            <div className="comments-container">
+                {commentIDs != null
                     ?   commentIDs.map(item => (
-                            <Comment key={item} someID={item} />
+                            <Comment key={item} commentID={item} />
                         ))
-                    :   <p>No comments yet.</p>
+                    :   <p className="comments-container__no-comment">No comments yet.</p>
                 }
             </div>
         </> 

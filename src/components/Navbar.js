@@ -12,7 +12,7 @@ function Navbar() {
     }, [])
 
     const highlightTab = (event) => {
-        const tab = event.target.innerHTML;
+        const tab = event.target.innerText;
         setSelectedTab(tab);
     }
 
