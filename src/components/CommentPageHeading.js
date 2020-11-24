@@ -16,7 +16,7 @@ function CommentPageHeading (props) {
             <p className="comment-title__container__info">
                 {props.points} points | by
 
-                <Link to={{ pathname: '/user', state: {userID: props.username} }}>
+                <Link to={{ pathname: '/user', state: {username: props.username} }}>
                     {props.username}
                 </Link>
                 <span>{props.time} ago </span>

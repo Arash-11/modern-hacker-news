@@ -21,9 +21,7 @@ function Navbar() {
         <nav className="nav">
             <ul className="nav__list">
                 <li className="nav__list__title">
-                    <Link to='/' onClick={highlightTab}>
-                        Modern H.N.
-                    </Link>
+                    <Link to='/' onClick={highlightTab}> HN </Link>
                 </li>
                 <ul className="nav__list__items">
                     <li className={selectedTab === 'top' ? 'highlight' : ''}>

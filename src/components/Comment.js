@@ -1,6 +1,6 @@
 import React , { useState , useEffect } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import getTimeDetails from './TimeDifference';
 
 
@@ -28,9 +28,11 @@ function Comment ({commentID, depth = 0}) {
 
     return (
         <>
-            <div style={{marginLeft: depth * 50}} className={`comments-container__comment ${depth === 0 && ' separate-comment'}`}>
+            <div style={{marginLeft: depth * 50}} className={`comments-container__comment ${depth === 0 ? ' main-comment' : ' nested'}`}>
                 <p className="comments-container__comment__heading">
-                    <span>{commentInfo.by}</span>
+                    <Link to={{ pathname: '/user', state: {username: commentInfo.by} }}>
+                        {commentInfo.by}
+                    </Link>
                     <span>{getTimeDetails(commentInfo.time)}</span>
                 </p>                
                 <p
