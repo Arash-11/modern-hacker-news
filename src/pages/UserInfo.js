@@ -63,7 +63,7 @@ function UserInfo() {
         <div className="userinfo-container">
             <ul className="userinfo-container__labels">
                 <li className="userinfo-container__labels__item">Username:</li>
-                <li className="userinfo-container__labels__item">Account created on:</li>
+                <li className="userinfo-container__labels__item">Created:</li>
                 <li className="userinfo-container__labels__item">Karma:</li>
                 <li className="userinfo-container__labels__item">About:</li>
             </ul>

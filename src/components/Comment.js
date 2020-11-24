@@ -28,7 +28,7 @@ function Comment ({commentID, depth = 0}) {
 
     return (
         <>
-            <div style={{marginLeft: depth * 50}} className={`comments-container__comment ${depth === 0 ? ' main-comment' : ' nested'}`}>
+            <div style={{marginLeft: depth * 30}} className={`comments-container__comment ${depth === 0 ? ' main-comment' : ' nested-comment'}`}>
                 <p className="comments-container__comment__heading">
                     <Link to={{ pathname: '/user', state: {username: commentInfo.by} }}>
                         {commentInfo.by}

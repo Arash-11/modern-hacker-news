@@ -1,3 +1,4 @@
+// media queries at the bottom of this page
 
 $whitesmoke: #F6F6EF;
 $gainsboro: #E3E3DC;
@@ -59,7 +60,7 @@ body {
     z-index: 100;
     width: 100%;
     height: 3.5rem;
-    padding: 0.7rem 4rem;
+    padding: 0.6rem 4rem;
     background: $orangered;
 }
 
@@ -72,8 +73,8 @@ body {
 }
 
 .nav__list__title {
-    padding: 0 6px;
-    font-size: 1.3rem;
+    padding: 0 4px;
+    font-size: 1.4rem;
     font-weight: 600;
     border: solid 2px $whitesmoke;
 }
@@ -115,7 +116,7 @@ body {
 }
 
 .content-container__storycard-list__story {
-    padding: 3% 0 2%;
+    padding: 2rem 0 1.5rem;
     border-bottom: solid 1px $lightgray;
     line-height: 1.8rem;
 }
@@ -147,7 +148,7 @@ body {
 .content-container__more-button {
     appearance: none;
     display: block;
-    margin: 3% auto;
+    margin: 3rem auto;
     padding: 0.5%;
     background: transparent;
     border: solid 2px $orangered;
@@ -197,7 +198,7 @@ body {
 .userinfo-container__entries__item {
     margin: 1.5rem 0;
     width: 100%;
-    white-space: pre-wrap;
+    word-wrap: break-word;
     &:nth-child(4) {
         margin-bottom: 0.5rem;
     }
@@ -275,8 +276,8 @@ body {
     }
 }
 
-.nested {
-    padding: 0rem 0 2rem;
+.nested-comment {
+    padding: 0 0 2rem;
 }
 
 .comments-container__comment__heading {
@@ -287,7 +288,6 @@ body {
         margin-left: 0.5rem;
     }
     a {
-        margin-left: 0.3rem;
         color: $gray;
         text-decoration: underline;
     }
@@ -295,4 +295,136 @@ body {
 
 .comments-container__comment__body {
     font-size: 1rem;
+}
+
+
+
+// media queries ---------------------------------------------------------------------------
+@media screen and (max-width: 700px) {
+    %flex-row-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    %flex-column-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // navbar --------------------------------------------------------------
+    .nav {
+        height: 2.7rem;
+        padding: 0.5rem 1.5rem 0.5rem 1rem;
+    }
+
+    .nav__list {
+        @extend %flex-row-mobile;
+        justify-content: space-between;
+    }
+
+    .nav__list__title {
+        padding: 0 4px;
+        font-size: 1rem;
+    }
+
+    .nav__list__items {
+        @extend %flex-row-mobile;
+        justify-content: space-between;
+        position: relative;
+        right: 20%;
+        width: 65%;
+        font-size: 1rem;
+    }
+
+    // StoryCard ------------------------------------------------------------
+    .content-container {
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+
+    .content-container__storycard-list__story {
+        padding: 1rem 0;
+        line-height: 1.6rem;
+    }
+
+    .content-container__storycard-list__story__title {
+        font-size: 1rem;
+    }
+
+    .content-container__storycard-list__info {
+        font-size: 0.7rem;
+    }
+
+    .content-container__more-button {
+        margin: 1.5rem auto;
+        padding: 1%;
+        font-size: 1.2rem;
+    }
+
+    // UserInfo page --------------------------------------------------------
+    .userinfo-container {
+        @extend %flex-row-mobile;
+        align-items: flex-start;
+        padding: 3rem 2rem;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .userinfo-container__labels {
+        @extend %flex-column-mobile;
+        width: 35%;
+    }
+
+    .userinfo-container__labels__item {
+        margin: 1.5rem 15% 1.5rem auto;
+    }
+
+    .userinfo-container__entries {
+        @extend %flex-column-mobile;
+        width: 75%;
+    }
+
+    // Comments page --------------------------------------------------------
+    .comment-title__container {
+        width: fit-content;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 1rem;
+    }
+
+    .comment-title__container__title {
+        font-size: 1.2rem;
+    }
+
+    .comment-title__container__url {
+        font-size: 0.9rem;
+    }
+
+    .comment-title__container__info {
+        margin-top: 2%;
+        font-size: 0.9rem;
+    }
+
+    .comments-container {
+        margin: 2rem 1.5rem;
+        padding: 0;
+        border-left: none;
+    }
+
+    .comments-container__comment {
+        line-height: 1.4rem;
+    }
+
+    .comments-container__comment__heading {
+        margin-bottom: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .comments-container__comment__body {
+        font-size: 0.9rem;
+    }
+
 }
