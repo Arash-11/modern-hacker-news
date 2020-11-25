@@ -17,7 +17,7 @@ This project is a clone of [Hacker News](https://news.ycombinator.com/) but with
 
 You can check the live site here: https://modernhn.netlify.app/.
 
-![Preview image of website](https://github.com/Arash-11/modern-hacker-news/blob/main/modernhn.png)
+![Preview image of website](https://github.com/Arash-11/modern-hacker-news/blob/master/modernhn.png)
 
 <br />
 
