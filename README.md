@@ -17,15 +17,15 @@ This project is a clone of [Hacker News](https://news.ycombinator.com/) but with
 
 You can check the live site here: https://modernhn.netlify.app/.
 
+![Preview image of website](https://github.com/Arash-11/modern-hacker-news/blob/master/modernhn.png)
+
 <br />
 
 # About the project
 
 I created this website to read Hacker News in a more aesthetically pleasing format. And in the process, I removed parts of the original site that I do not use, which are the 'Comments' tab that displays comments from all posts on a single page (I can still read individual posts' comments), the ability to upvote a post, and the ability to login.
 
-This project was also a good chance to practice my frontend ReactJS skills, and to learn how to use tools such as Webpack and Babel (I did not use create-react-app).
-
-
+This project was also a good chance to practice my frontend ReactJS skills, and to learn how to use tools such as Webpack and Babel (I did not use create-react-app). The site is deployed on Netlify.
 
 <br />
 
