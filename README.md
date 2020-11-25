@@ -21,15 +21,15 @@ You can check the live site here: https://modernhn.netlify.app/.
 
 <br />
 
-# About the project
+## About the project
 
 I created this website to read Hacker News in a more aesthetically pleasing format. And in the process, I removed parts of the original site that I do not use, which are the 'Comments' tab that displays comments from all posts on a single page (I can still read individual posts' comments), the ability to upvote a post, and the ability to login.
 
-This project was also a good chance to practice my frontend ReactJS skills, and to learn how to use tools such as Webpack and Babel (I did not use create-react-app). The site is deployed on Netlify.
+This project was also a good chance to practice my frontend ReactJS skills, and to learn how to use tools such as webpack and Babel, without always relying on create-react-app. The site is deployed on Netlify.
 
 <br />
 
-# Installation
+## Installation
 
 Install and initialize npm first:
 
@@ -52,12 +52,12 @@ npm run-script build
 
 <br />
 
-# Technologies used
+## Technologies used
 
 - HTML / SCSS
 - ReactJS
 - Hacker News API
-- Webpack
+- webpack
 - Babel
 - Postman (for API testing)
 - Netlify
@@ -65,4 +65,3 @@ npm run-script build
 <br />
 
 For list of dependencies, see the `package.json` file.
-
