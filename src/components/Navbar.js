@@ -18,30 +18,28 @@ function Navbar() {
 
 
     return (
-        <nav className="nav">
-            <ul className="nav__list">
-                <li className="nav__list__title">
-                    <Link to='/' onClick={highlightTab}> HN </Link>
-                </li>
-                <ul className="nav__list__items">
-                    <li className={selectedTab === 'top' ? 'highlight' : ''}>
-                        <Link to='/top' onClick={highlightTab}>top</Link>
-                    </li>
-                    <li className={selectedTab === 'new' ? 'highlight' : ''}>
-                        <Link to='/new' onClick={highlightTab}>new</Link>
-                    </li>
-                    <li className={selectedTab === 'ask' ? 'highlight' : ''}>
-                        <Link to='/ask' onClick={highlightTab}>ask</Link>
-                    </li>
-                    <li className={selectedTab === 'show' ? 'highlight' : ''}>
-                        <Link to='/show' onClick={highlightTab}>show</Link>
-                    </li>
-                    <li className={selectedTab === 'jobs' ? 'highlight' : ''}>
-                        <Link to='/jobs' onClick={highlightTab}>jobs</Link>
-                    </li>
-                </ul>
-            </ul>
-        </nav>
+        <header className="header">
+            <nav className="header__nav">
+                <Link to='/' onClick={highlightTab} className="header__nav__title"> HN </Link>
+                <div className="header__nav__items">
+                    <Link to='/top' onClick={highlightTab} className={selectedTab === 'top' ? 'highlight' : ''}>
+                        top
+                    </Link>
+                    <Link to='/new' onClick={highlightTab} className={selectedTab === 'new' ? 'highlight' : ''}>
+                        new
+                    </Link>
+                    <Link to='/ask' onClick={highlightTab} className={selectedTab === 'ask' ? 'highlight' : ''}>
+                        ask
+                    </Link>
+                    <Link to='/show' onClick={highlightTab} className={selectedTab === 'show' ? 'highlight' : ''}>
+                        show
+                    </Link>
+                    <Link to='/jobs' onClick={highlightTab} className={selectedTab === 'jobs' ? 'highlight' : ''}>
+                        jobs
+                    </Link>
+                </div>
+            </nav>
+        </header>
     )
 }
 

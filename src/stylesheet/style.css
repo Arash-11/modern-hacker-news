@@ -1,4 +1,4 @@
-.nav__list, .nav__list__items, .userinfo-container {
+.header__nav, .header__nav__items, .userinfo-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,7 +73,7 @@ body a {
   text-decoration: none;
 }
 
-.nav {
+.header {
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -82,24 +82,24 @@ body a {
   background: #FF6600;
 }
 
-.nav__list {
+.header__nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-.nav__list a {
+.header__nav a {
   color: #F6F6EF;
 }
 
-.nav__list__title {
+.header__nav__title {
   padding: 0 4px;
   font-size: 1.4rem;
   font-weight: 600;
   border: solid 2px #F6F6EF;
 }
 
-.nav__list__items {
+.header__nav__items {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -107,11 +107,11 @@ body a {
   font-size: 1.1rem;
 }
 
-.nav__list__items a {
+.header__nav__items a {
   opacity: 0.7;
 }
 
-.nav__list__items a:hover {
+.header__nav__items a:hover {
   color: white;
   opacity: 1;
 }
@@ -338,7 +338,7 @@ body a {
 }
 
 @media screen and (max-width: 700px) {
-  .nav__list, .nav__list__items, .userinfo-container {
+  .header__nav, .header__nav__items, .userinfo-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -368,20 +368,20 @@ body a {
         -ms-flex-align: center;
             align-items: center;
   }
-  .nav {
+  .header {
     height: 3rem;
     padding: 0.6rem 1.5rem 0.5rem 1rem;
   }
-  .nav__list {
+  .header__nav {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .nav__list__title {
+  .header__nav__title {
     padding: 0 4px;
     font-size: 1.1rem;
   }
-  .nav__list__items {
+  .header__nav__items {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
